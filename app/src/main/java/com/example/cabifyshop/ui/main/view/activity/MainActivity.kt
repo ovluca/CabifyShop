@@ -1,8 +1,9 @@
-package com.example.cabifyshop
+package com.example.cabifyshop.ui.main.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.cabifyshop.ui.main.MainFragment
+import com.example.cabifyshop.R
+import com.example.cabifyshop.ui.main.view.fragment.ProductsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
+                    .replace(R.id.container, ProductsFragment.newInstance())
                     .commitNow()
         }
     }
