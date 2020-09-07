@@ -1,7 +1,13 @@
 package com.example.cabifyshop.data.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Product(
-    val code: String,
-    val name: String,
-    val price: Double
+    @PrimaryKey
+    @ColumnInfo val code: String,
+    @ColumnInfo val name: String,
+    @ColumnInfo val price: Double
 )

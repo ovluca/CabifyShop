@@ -1,7 +1,6 @@
 package com.example.cabifyshop.ui.main.view.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,10 +20,9 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.products.observe(this, Observer { products ->
-            products.forEach { product ->
-                Log.d("CABIFY", "Product Name: " + product.name)
-            }
+        viewModel.products.observe(this, Observer {
+            ProductsActivity.open(this)
+            finish()
         })
     }
 }
