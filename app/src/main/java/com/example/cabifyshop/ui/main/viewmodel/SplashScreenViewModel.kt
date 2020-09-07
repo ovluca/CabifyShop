@@ -9,7 +9,7 @@ class SplashScreenViewModel : ViewModel() {
     private val repository = ApiRepository()
 
     val products = liveData {
-        val products: List<Product> = repository.getProducts().products
+        val products: List<Product> = repository.getProducts()
         emit(products)
     }
 }
