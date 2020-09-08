@@ -21,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.products.observe(this, Observer {
-            ProductsActivity.open(this)
+            ShopActivity.open(this)
             finish()
         })
     }

@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.main.view.activity.ProductsActivity" />
+        <activity android:name=".ui.main.view.activity.ShopActivity" />
     </application>
 
 </manifest>
