@@ -4,10 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.cabifyshop.R
 import com.example.cabifyshop.databinding.ShopActivityBinding
-import com.example.cabifyshop.ui.main.view.fragment.CartFragment
-import com.example.cabifyshop.ui.main.view.fragment.ProductsFragment
 
 class ShopActivity : AppCompatActivity() {
 
@@ -18,11 +17,6 @@ class ShopActivity : AppCompatActivity() {
         binding = ShopActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ProductsFragment.newInstance())
-                .commitNow()
-        }
         setupMenu()
     }
 
@@ -30,9 +24,7 @@ class ShopActivity : AppCompatActivity() {
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.cart -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, CartFragment.newInstance())
-                        .commitNow()
+                    binding.navHostFragment.findNavController().navigate(R.id.action_productsFragment_to_cartFragment)
                     true
                 }
                 else -> false
