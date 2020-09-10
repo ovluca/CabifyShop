@@ -20,10 +20,11 @@ class CartFragment : Fragment() {
 		return binding.root
 	}
 
-	companion object {
-		fun newInstance() =
-			CartFragment()
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+
 	}
+
 
 	override fun onDestroy() {
 		super.onDestroy()

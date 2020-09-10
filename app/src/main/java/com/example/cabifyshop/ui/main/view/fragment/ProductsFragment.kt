@@ -20,11 +20,6 @@ class ProductsFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    companion object {
-        fun newInstance() =
-            ProductsFragment()
-    }
-
     private lateinit var viewModel: ProductsViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
