@@ -3,6 +3,7 @@ package com.example.cabifyshop.ui.main.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cabifyshop.R
 import com.example.cabifyshop.data.model.Product
 import com.example.cabifyshop.databinding.RowProductBinding
 
@@ -12,7 +13,7 @@ class ProductsAdapter(private val list: List<Product>) : RecyclerView.Adapter<Pr
 	class ProductViewHolder(private val itemBinding: RowProductBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 		fun bind(product: Product) {
 			itemBinding.productName.text = product.name
-			itemBinding.productPrice.text = product.price.toString()
+			itemBinding.productPrice.text = itemBinding.root.context.getString(R.string._price, product.price.toString())
 		}
 
 	}
