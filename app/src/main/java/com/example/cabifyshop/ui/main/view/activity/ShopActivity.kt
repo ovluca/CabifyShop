@@ -17,6 +17,7 @@ class ShopActivity : AppCompatActivity() {
                 .replace(R.id.container, ProductsFragment.newInstance())
                 .commitNow()
         }
+
     }
 
     companion object {

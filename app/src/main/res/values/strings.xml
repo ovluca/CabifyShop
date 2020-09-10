@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">CabifyShop</string>
+    <string name="app_name">Cabify Shop</string>
+    <string name="checkout">Checkout</string>
+    <string name="cart">Cart</string>
 </resources>
