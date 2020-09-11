@@ -8,7 +8,7 @@ import com.example.cabifyshop.data.model.ProductAndCart
 @Dao
 interface CartDao {
 
-	@Insert(onConflict = OnConflictStrategy.IGNORE)
+	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	fun insertProductInCart(cart: Cart)
 
 	@Transaction

@@ -37,7 +37,7 @@ class ProductsFragment : Fragment() {
         viewModel.getProducts().observe(viewLifecycleOwner, Observer { products ->
             binding.productsRecyclerView.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = ProductsAdapter(products)
+                adapter = ProductsAdapter(products, viewModel)
             }
         })
     }

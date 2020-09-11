@@ -9,9 +9,13 @@ import com.example.cabifyshop.data.repository.LocalRepository
 
 class ProductsViewModel(application: Application) : AndroidViewModel(application) {
 
-	var localRepository: LocalRepository = LocalRepository(AppDatabase.getAppDataBase(application)!!.productDao());
+	private var localRepository: LocalRepository = LocalRepository(AppDatabase.getAppDataBase(application)!!.productDao());
 
 	fun getProducts(): LiveData<List<Product>> {
-		return localRepository.getAllProducts();
+		return localRepository.getAllProducts()
+	}
+
+	suspend fun insertProduct(product: Product) {
+		localRepository.insertProductToCart(product)
 	}
 }

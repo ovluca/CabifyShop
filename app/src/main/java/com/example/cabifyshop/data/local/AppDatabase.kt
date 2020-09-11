@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.cabifyshop.data.model.Cart
 import com.example.cabifyshop.data.model.Product
 
-@Database(entities = [Product::class], version = 1)
+@Database(entities = [Product::class, Cart::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): ProductDao
 

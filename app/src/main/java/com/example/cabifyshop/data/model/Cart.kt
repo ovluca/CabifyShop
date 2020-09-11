@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "cart")
 data class Cart(
 	@PrimaryKey
-	@SerializedName("product_code")
-	@ColumnInfo val productCode: String,
+	@ColumnInfo val product_code: String,
 	@ColumnInfo val quantity: Int
 )
