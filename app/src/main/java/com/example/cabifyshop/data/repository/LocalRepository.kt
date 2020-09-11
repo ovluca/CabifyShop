@@ -4,11 +4,16 @@ import androidx.lifecycle.LiveData
 import com.example.cabifyshop.data.local.ProductDao
 import com.example.cabifyshop.data.model.Cart
 import com.example.cabifyshop.data.model.Product
+import com.example.cabifyshop.data.model.ProductAndCart
 
 class LocalRepository(private val productDao: ProductDao) {
 
 	fun getAllProducts(): LiveData<List<Product>> {
 		return productDao.getProducts()
+	}
+
+	fun getCart(): LiveData<List<ProductAndCart>> {
+		return productDao.getCart()
 	}
 
 	suspend fun insertProductToCart(product: Product) {

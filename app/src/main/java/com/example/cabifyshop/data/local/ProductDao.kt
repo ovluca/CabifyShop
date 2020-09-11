@@ -16,10 +16,6 @@ interface ProductDao {
 	@Query("UPDATE cart SET quantity = quantity + 1 WHERE product_code == :productCode")
 	suspend fun updateQuantity(productCode: String)
 
-	@Transaction
-	@Query("SELECT * FROM cart")
-	fun getCartData(): LiveData<List<ProductAndCart>>
-
 	@Query("SELECT * from cart WHERE product_code == :productCode")
 	suspend fun getItemById(productCode: String): List<Cart>
 
@@ -28,4 +24,8 @@ interface ProductDao {
 
 	@Query("SELECT * FROM products")
 	fun getProducts(): LiveData<List<Product>>
+
+	@Transaction
+	@Query("SELECT * FROM cart")
+	fun getCart(): LiveData<List<ProductAndCart>>
 }
