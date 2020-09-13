@@ -16,6 +16,10 @@ class LocalRepository(private val productDao: ProductDao) {
 		return productDao.getCart()
 	}
 
+	suspend fun deleteDataFromCart() {
+		return productDao.deleteDataFromCart()
+	}
+
 	suspend fun insertProductToCart(product: Product) {
 		val cart = productDao.getItemById(product.code)
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cabifyshop.R
+import com.example.cabifyshop.data.model.ProductAndCart
 import com.example.cabifyshop.databinding.CartFragmentBinding
 import com.example.cabifyshop.ui.main.adapter.CartAdapter
 import com.example.cabifyshop.ui.main.viewmodel.CartViewModel
@@ -30,15 +32,31 @@ class CartFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 		viewModel = ViewModelProvider(this).get(CartViewModel::class.java)
 		setupObservers()
+		setupClickListeners()
 	}
 
 	private fun setupObservers() {
 		viewModel.getCart().observe(viewLifecycleOwner, Observer { products ->
-			binding.cartRecyclerView.apply {
-				layoutManager = LinearLayoutManager(context)
-				adapter = CartAdapter(products)
-			}
+			setupViewItems(products)
 		})
+	}
+
+	private fun setupViewItems(products: List<ProductAndCart>) {
+		binding.noItemsText.visibility = if (products.isEmpty()) View.VISIBLE else View.GONE
+
+		binding.cartRecyclerView.apply {
+			layoutManager = LinearLayoutManager(context)
+			adapter = CartAdapter(products)
+			binding.totalToPayText.text = getString(R.string._total, viewModel.getTotal(products).toString())
+		}
+	}
+
+	private fun setupClickListeners() {
+		binding.checkoutButton.setOnClickListener {
+			run {
+				viewModel.deleteDataFromCart()
+			}
+		}
 	}
 
 

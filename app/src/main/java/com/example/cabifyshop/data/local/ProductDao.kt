@@ -28,4 +28,7 @@ interface ProductDao {
 	@Transaction
 	@Query("SELECT * FROM cart")
 	fun getCart(): LiveData<List<ProductAndCart>>
+
+	@Query("DELETE FROM cart")
+	suspend fun deleteDataFromCart()
 }
