@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.cabifyshop.R
 import com.example.cabifyshop.databinding.ShopActivityBinding
+import kotlinx.android.synthetic.main.shop_activity.*
 
 class ShopActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class ShopActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ShopActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         setupMenu()
     }

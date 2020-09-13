@@ -13,6 +13,7 @@ import com.example.cabifyshop.data.model.ProductAndCart
 import com.example.cabifyshop.databinding.CartFragmentBinding
 import com.example.cabifyshop.ui.main.adapter.CartAdapter
 import com.example.cabifyshop.ui.main.viewmodel.CartViewModel
+import kotlinx.android.synthetic.main.shop_activity.*
 
 class CartFragment : Fragment() {
 
@@ -31,8 +32,27 @@ class CartFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		viewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+
 		setupObservers()
 		setupClickListeners()
+	}
+
+	override fun onActivityCreated(savedInstanceState: Bundle?) {
+		super.onActivityCreated(savedInstanceState)
+		setupToolbar()
+	}
+
+	private fun setupToolbar() {
+		requireActivity().topAppBar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
+		requireActivity().topAppBar.title = getString(R.string.cart)
+
+		requireActivity().topAppBar.setNavigationOnClickListener {
+			run {
+				requireActivity().onBackPressed()
+			}
+		}
+
+		requireActivity().topAppBar.menu.setGroupVisible(R.id.menu, false)
 	}
 
 	private fun setupObservers() {
