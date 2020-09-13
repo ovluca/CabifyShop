@@ -7,5 +7,20 @@
     <string name="_quantity"> Qty: %s </string>
     <string name="_total"> Total: %s </string>
     <string name="_added_to_cart"> %s added to Cart!</string>
-    <string name="please_buy_some_items">Please buy some items!</string>
+    <string name="no_items">No items!</string>
+    <string name="max_items_reached">Max Items Reached</string>
+
+    <string-array name="quantity_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>

@@ -66,7 +66,7 @@ class CartFragment : Fragment() {
 
 		binding.cartRecyclerView.apply {
 			layoutManager = LinearLayoutManager(context)
-			adapter = CartAdapter(products)
+			adapter = CartAdapter(products, viewModel)
 			binding.totalToPayText.text = getString(R.string._total, viewModel.getTotal(products).toString())
 		}
 	}

@@ -16,6 +16,9 @@ interface ProductDao {
 	@Query("UPDATE cart SET quantity = quantity + 1 WHERE product_code == :productCode")
 	suspend fun updateQuantity(productCode: String)
 
+	@Query("UPDATE cart SET quantity = :quantity WHERE product_code == :productCode")
+	suspend fun updateQuantity(productCode: String, quantity: Int)
+
 	@Query("SELECT * from cart WHERE product_code == :productCode")
 	suspend fun getItemById(productCode: String): List<Cart>
 

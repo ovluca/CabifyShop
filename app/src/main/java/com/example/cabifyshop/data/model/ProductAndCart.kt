@@ -3,6 +3,9 @@ package com.example.cabifyshop.data.model
 import androidx.room.Embedded
 import androidx.room.Relation
 
+private const val VOUCHER = "VOUCHER"
+private const val T_SHIRT = "TSHIRT"
+
 data class ProductAndCart(
 	@Embedded val cart: Cart,
 	@Relation(
@@ -41,9 +44,9 @@ data class ProductAndCart(
 	}
 
 	fun applyDiscount(): Double {
-		if (product.code == "VOUCHER") {
+		if (product.code == VOUCHER) {
 			return applyVoucherDiscount()
-		} else if (product.code == "TSHIRT") {
+		} else if (product.code == T_SHIRT) {
 			return applyBulkDiscount()
 		}
 		return getTotalPrice()

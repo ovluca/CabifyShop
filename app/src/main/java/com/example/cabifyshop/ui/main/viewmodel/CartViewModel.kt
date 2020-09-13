@@ -32,4 +32,8 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
 		viewModelScope.launch { localRepository.deleteDataFromCart() }
 	}
 
+	fun updateQuantity(productCode: String, quantity: Int) {
+		viewModelScope.launch { localRepository.updateQuantity(productCode, quantity) }
+	}
+
 }

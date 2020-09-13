@@ -15,7 +15,7 @@ class ProductsViewModel(application: Application) : AndroidViewModel(application
 		return localRepository.getAllProducts()
 	}
 
-	suspend fun insertProduct(product: Product) {
-		localRepository.insertProductToCart(product)
+	suspend fun insertProduct(product: Product, onError: () -> Unit) {
+		localRepository.insertProductToCart(product, onError = onError)
 	}
 }

@@ -26,7 +26,12 @@ class ProductsAdapter(private val list: List<Product>, private val viewModel: Pr
 
 			itemBinding.addToCartButton.setOnClickListener { view ->
 				run {
-					viewModel.viewModelScope.launch { viewModel.insertProduct(product) }
+
+					viewModel.viewModelScope.launch {
+						viewModel.insertProduct(product, onError = {
+							Snackbar.make(view, context.getString(R.string.max_items_reached), Snackbar.LENGTH_SHORT).show()
+						})
+					}
 
 					Snackbar.make(view, context.getString(R.string._added_to_cart, product.name), Snackbar.LENGTH_SHORT).show()
 				}
