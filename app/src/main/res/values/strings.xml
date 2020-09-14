@@ -9,6 +9,11 @@
     <string name="_added_to_cart"> %s added to Cart!</string>
     <string name="no_items">No items!</string>
     <string name="max_items_reached">Max Items Reached</string>
+    <string name="pay">Pay</string>
+    <string name="cancel">Cancel</string>
+    <string name="buy">Buy</string>
+    <string name="buy_those_products">Do you want to buy those products?</string>
+    <string name="buy_products">Buy Products</string>
 
     <string-array name="quantity_array">
         <item>0</item>

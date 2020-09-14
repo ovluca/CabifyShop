@@ -1,6 +1,7 @@
 package com.example.cabifyshop.ui.main.adapter
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +20,12 @@ class CartAdapter(private val list: List<ProductAndCart>, private val viewModel:
 		fun bind(productAndCart: ProductAndCart) {
 			itemBinding.productName.text = productAndCart.product.name
 			itemBinding.productQuantity.text = context.getString(R.string._quantity, productAndCart.cart.quantity.toString())
-			itemBinding.productPriceWithoutDiscount.text = context.getString(R.string._price, productAndCart.getTotalPrice().toString())
 			itemBinding.productPriceWithDiscount.text = context.getString(R.string._price, productAndCart.applyDiscount().toString())
+
+			itemBinding.productPriceWithoutDiscount.apply {
+				paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+				text = context.getString(R.string._price, productAndCart.getTotalPrice().toString())
+			}
 
 			itemBinding.quantitySpinner.isSelected = false
 			itemBinding.quantitySpinner.setSelection(productAndCart.cart.quantity, false)

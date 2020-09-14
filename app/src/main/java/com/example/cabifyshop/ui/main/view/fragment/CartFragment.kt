@@ -13,6 +13,7 @@ import com.example.cabifyshop.data.model.ProductAndCart
 import com.example.cabifyshop.databinding.CartFragmentBinding
 import com.example.cabifyshop.ui.main.adapter.CartAdapter
 import com.example.cabifyshop.ui.main.viewmodel.CartViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.shop_activity.*
 
 class CartFragment : Fragment() {
@@ -63,18 +64,25 @@ class CartFragment : Fragment() {
 
 	private fun setupViewItems(products: List<ProductAndCart>) {
 		binding.noItemsText.visibility = if (products.isEmpty()) View.VISIBLE else View.GONE
+		binding.payButton.isEnabled = products.isNotEmpty()
 
 		binding.cartRecyclerView.apply {
 			layoutManager = LinearLayoutManager(context)
 			adapter = CartAdapter(products, viewModel)
 			binding.totalToPayText.text = getString(R.string._total, viewModel.getTotal(products).toString())
+
 		}
 	}
 
 	private fun setupClickListeners() {
-		binding.checkoutButton.setOnClickListener {
+		binding.payButton.setOnClickListener {
 			run {
-				viewModel.deleteDataFromCart()
+				MaterialAlertDialogBuilder(requireContext()).apply {
+					setTitle(getString(R.string.buy_products))
+					setMessage(getString(R.string.buy_those_products))
+					setPositiveButton(getString(R.string.buy)) { _, _ -> viewModel.deleteDataFromCart() }
+					setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+				}.show()
 			}
 		}
 	}

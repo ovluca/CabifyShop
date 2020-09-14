@@ -47,14 +47,14 @@
             android:padding="@dimen/row_product_padding"
             android:text="total: 42.00"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toTopOf="@id/checkout_button"
+            app:layout_constraintBottom_toTopOf="@id/pay_button"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/checkout_button"
+            android:id="@+id/pay_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/checkout"
+            android:text="@string/pay"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
