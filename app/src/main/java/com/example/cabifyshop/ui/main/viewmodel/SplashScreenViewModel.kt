@@ -1,26 +1,38 @@
 package com.example.cabifyshop.ui.main.viewmodel
 
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.cabifyshop.data.local.AppDatabase
-import com.example.cabifyshop.data.model.Product
-import com.example.cabifyshop.data.repository.ApiRepository
 import kotlinx.coroutines.launch
 
 class SplashScreenViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository = ApiRepository()
 
     private val db = AppDatabase.getAppDataBase(application)
 
-    val products = liveData {
-        val products: List<Product> = repository.getProducts()
-        populateDatabase(products)
-        emit(products)
+    /**
+     * Check if database contains products
+     * */
+    fun databaseHasProducts(onSuccess: (hasProducts: Boolean) -> Unit) {
+        viewModelScope.launch {
+            onSuccess(db!!.productDao().hasProducts())
+        }
     }
 
-    private fun populateDatabase(products: List<Product>) {
-        viewModelScope.launch { db!!.productDao().insertAll(products) }
+    /**
+     * Check internet connection
+     * */
+    fun isNetworkConnected(context: Context): Boolean {
+        //1
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        //2
+        val activeNetwork = connectivityManager.activeNetwork
+        //3
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+        //4
+        return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 }

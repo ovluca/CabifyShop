@@ -14,6 +14,11 @@
     <string name="buy">Buy</string>
     <string name="buy_those_products">Do you want to buy those products?</string>
     <string name="buy_products">Buy Products</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="connection_error_message">Please check your internet connection</string>
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="error_occured">Error Occurred</string>
 
     <string-array name="quantity_array">
         <item>0</item>

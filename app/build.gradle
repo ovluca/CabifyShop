@@ -22,6 +22,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -39,6 +43,7 @@ dependencies {
     def retrofit_version = "2.7.0"
     def lifecycle_version = "2.2.0"
     def nav_version = "2.3.0"
+    def work_version = "2.4.0"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -72,6 +77,9 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 
 
 }

@@ -34,4 +34,7 @@ interface ProductDao {
 
 	@Query("DELETE FROM cart")
 	suspend fun deleteDataFromCart()
+
+	@Query("SELECT EXISTS(SELECT * FROM products)")
+	suspend fun hasProducts(): Boolean
 }
