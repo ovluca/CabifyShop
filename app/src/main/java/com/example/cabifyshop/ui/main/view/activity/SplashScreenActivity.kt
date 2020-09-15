@@ -68,13 +68,6 @@ class SplashScreenActivity : AppCompatActivity() {
                 if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
                     ShopActivity.open(this)
                     finish()
-                } else {
-                    MaterialAlertDialogBuilder(this).apply {
-                        setTitle(getString(R.string.error))
-                        setMessage(getString(R.string.error_occured))
-                        setPositiveButton(getString(R.string.ok)) { _, _ -> finishAffinity() }.show()
-
-                    }
                 }
             })
     }
