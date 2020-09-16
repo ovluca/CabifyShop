@@ -6,6 +6,13 @@ import androidx.room.Relation
 private const val VOUCHER = "VOUCHER"
 private const val T_SHIRT = "TSHIRT"
 
+/**
+ * used for joining Product and Cart
+ * Cart and Product have One-on-One Relation
+ *
+ * calculate the total price and the discounts for every item
+ * */
+
 data class ProductAndCart(
 	@Embedded val cart: Cart,
 	@Relation(

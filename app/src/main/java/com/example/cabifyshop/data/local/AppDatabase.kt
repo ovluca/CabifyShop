@@ -7,6 +7,10 @@ import androidx.room.RoomDatabase
 import com.example.cabifyshop.data.model.Cart
 import com.example.cabifyshop.data.model.Product
 
+/**
+ * Database creation
+ * */
+
 @Database(entities = [Product::class, Cart::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): ProductDao

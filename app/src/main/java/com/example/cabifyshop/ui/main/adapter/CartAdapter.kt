@@ -19,7 +19,6 @@ class CartAdapter(private val list: List<ProductAndCart>, private val viewModel:
 
 		fun bind(productAndCart: ProductAndCart) {
 			itemBinding.productName.text = productAndCart.product.name
-			itemBinding.productQuantity.text = context.getString(R.string._quantity, productAndCart.cart.quantity.toString())
 			itemBinding.productPriceWithDiscount.text = context.getString(R.string._price, productAndCart.applyDiscount().toString())
 
 			itemBinding.productPriceWithoutDiscount.apply {

@@ -4,6 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Data class for Cart
+ * contains product_code and quantity
+ * */
+
 @Entity(tableName = "cart")
 data class Cart(
 	@PrimaryKey

@@ -7,6 +7,10 @@ import com.example.cabifyshop.data.model.Product
 import com.example.cabifyshop.data.model.ProductAndCart
 
 
+/**
+ * queries for products
+ * */
+
 @Dao
 interface ProductDao {
 

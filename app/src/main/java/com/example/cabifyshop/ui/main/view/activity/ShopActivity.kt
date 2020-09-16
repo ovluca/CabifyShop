@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.cabifyshop.R
 import com.example.cabifyshop.databinding.ShopActivityBinding
-
+/**
+ * Main Activity. Navigation Graph was implemented to create a smooth and easy replacement of fragments
+ *
+ * */
 class ShopActivity : AppCompatActivity() {
 
     private lateinit var binding: ShopActivityBinding

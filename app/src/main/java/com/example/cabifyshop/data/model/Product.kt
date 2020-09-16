@@ -4,6 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * data class for products
+ *
+ * it's used for database and for the API
+ * */
+
 @Entity(tableName = "products")
 data class Product(
     @PrimaryKey
